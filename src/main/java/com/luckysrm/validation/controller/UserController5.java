@@ -1,6 +1,7 @@
 package com.luckysrm.validation.controller;
 
 import com.luckysrm.validation.common.model.ao.RegisterAO;
+import com.luckysrm.validation.common.model.dto.RegisterDTO;
 import com.luckysrm.validation.service.UserService;
 import com.luckysrm.validation.service.UserService1;
 import com.luckysrm.validation.service.UserService2;
@@ -37,12 +38,22 @@ public class UserController5 {
     }
 
     /**
-     *
+     * ‘@Valid’，参数为null，直接通过，不校验
      */
     @RequestMapping("/serviceBaseTrue3")
     public String registerServiceImplBaseTrue3(RegisterAO param) {
         System.out.println();
         userService.registerMultyTrue(null);
+        return "success";
+    }
+
+    /**
+     * ‘@Valid’，参数不为null，校验内层
+     */
+    @RequestMapping("/serviceBaseTrue4")
+    public String registerServiceImplBaseTrue4(RegisterDTO param) {
+        System.out.println();
+        userService.registerMultyTrue(param);
         return "success";
     }
 

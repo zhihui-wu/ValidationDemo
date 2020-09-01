@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void registerMultyTrue(@Valid RegisterDTO param) {
+    public void registerMultyTrue(RegisterDTO param) {
         System.out.println("UserService.registerMultyTrue");
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 /**
  * @Description: ‘@Validated’ 注解于方法签名的参数上
  * @Author: 吴智慧
@@ -30,6 +32,15 @@ public class UserController {
      */
     @RequestMapping("/exception")
     public String registerException(@Validated RegisterAO param) {
+        System.out.println(param);
+        return "success";
+    }
+
+    /**
+     * 基础校验-抛出异常(@Valid)
+     */
+    @RequestMapping("/exceptionValid")
+    public String registerExceptionValid(@Valid RegisterAO param) {
         System.out.println(param);
         return "success";
     }
